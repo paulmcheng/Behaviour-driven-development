@@ -1,26 +1,38 @@
-﻿using TechTalk.SpecFlow;
-
+﻿using System.Linq;
+using TechTalk.SpecFlow;
+using Xunit;
 namespace GameCore.Specs
 {
+    //David Aamaie
     [Binding]
     public class PlayerSteps
     {
-        [Given(@"I am a new player")]
-        public void GivenIAmANewPlayer()
+        private Player _player;
+
+        [Given]
+        public void Given_I_m_a_new_player()
         {
-            ScenarioContext.Current.Pending();
+            _player = new Player();
         }
-        
-        [When(@"I take (.*) damage")]
-        public void WhenITakeDamage(int p0)
+
+        [When]
+        public void When_I_take_P0_damage(int p0)
         {
-            ScenarioContext.Current.Pending();
+            _player.Hit(p0);
         }
-        
-        [Then(@"My health should now be (.*)")]
-        public void ThenMyHealthShouldNowBe(int p0)
+
+        [Then]
+        public void Then_My_health_should_be_P0(int p0)
         {
-            ScenarioContext.Current.Pending();
+            Assert.Equal(_player.Health, p0);
         }
+
+        //[Given(@"I have the following attributes")]
+        //public void GivenIHaveTheFollowingAttributes(Table table)
+        //{
+        //    var race = table.Rows.First(row => row["attribute"] == "Race")["Value"];
+        //    var resistance = table.Rows.First(row => row["attribute"] == "Resistance")["Value"];
+        //} 
+
     }
 }
