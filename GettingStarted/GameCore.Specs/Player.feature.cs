@@ -83,21 +83,29 @@ namespace GameCore.Specs
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line 7
+ testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Taking no damage when hit doesn\'t affect health")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Player")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("health")]
         public virtual void TakingNoDamageWhenHitDoesntAffectHealth()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking no damage when hit doesn\'t affect health", new string[] {
-                        "mytag"});
-#line 7
+                        "health"});
+#line 11
 this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
+#line 6
+this.FeatureBackground();
+#line 13
  testRunner.When("I take 0 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
+#line 14
  testRunner.Then("My health should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -106,13 +114,13 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void StartingHealthIsReducedWhenHit(string damage, string expectedHealth, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit", exampleTags);
-#line 13
+#line 17
 this.ScenarioSetup(scenarioInfo);
-#line 14
- testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
+#line 6
+this.FeatureBackground();
+#line 19
  testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
+#line 20
  testRunner.Then(string.Format("my health should be {0}", expectedHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -126,7 +134,7 @@ this.ScenarioSetup(scenarioInfo);
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "100")]
         public virtual void StartingHealthIsReducedWhenHit_0()
         {
-#line 13
+#line 17
 this.StartingHealthIsReducedWhenHit("0", "100", ((string[])(null)));
 #line hidden
         }
@@ -139,7 +147,7 @@ this.StartingHealthIsReducedWhenHit("0", "100", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "90")]
         public virtual void StartingHealthIsReducedWhenHit_10()
         {
-#line 13
+#line 17
 this.StartingHealthIsReducedWhenHit("10", "90", ((string[])(null)));
 #line hidden
         }
@@ -152,7 +160,7 @@ this.StartingHealthIsReducedWhenHit("10", "90", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "50")]
         public virtual void StartingHealthIsReducedWhenHit_50()
         {
-#line 13
+#line 17
 this.StartingHealthIsReducedWhenHit("50", "50", ((string[])(null)));
 #line hidden
         }
@@ -165,7 +173,7 @@ this.StartingHealthIsReducedWhenHit("50", "50", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "1")]
         public virtual void StartingHealthIsReducedWhenHit_99()
         {
-#line 13
+#line 17
 this.StartingHealthIsReducedWhenHit("99", "1", ((string[])(null)));
 #line hidden
         }
@@ -178,7 +186,7 @@ this.StartingHealthIsReducedWhenHit("99", "1", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "0")]
         public virtual void StartingHealthIsReducedWhenHit_100()
         {
-#line 13
+#line 17
 this.StartingHealthIsReducedWhenHit("100", "0", ((string[])(null)));
 #line hidden
         }

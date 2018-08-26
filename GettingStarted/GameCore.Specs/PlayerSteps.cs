@@ -32,7 +32,12 @@ namespace GameCore.Specs
         //{
         //    var race = table.Rows.First(row => row["attribute"] == "Race")["Value"];
         //    var resistance = table.Rows.First(row => row["attribute"] == "Resistance")["Value"];
-        //} 
+
+        //    double.TryParse(resistance, out double resistanceValue);
+
+        //    _player.Resistance = resistanceValue;
+        //    _player.Race = race;
+        //}
 
     }
 }

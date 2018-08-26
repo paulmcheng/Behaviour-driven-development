@@ -16,5 +16,7 @@
 
         public int Health { get; private set; }
         public bool IsDead { get; private set; }
+        public string Race { get; set; }
+        public double Resistance { get; set; }
     }
 }
