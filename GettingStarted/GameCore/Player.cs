@@ -10,13 +10,13 @@
 
         public void Hit(int damage)
         {
-            Health -= damage;
+            Health -= System.Math.Abs(Resistance - damage);
             if (Health <= 0 ) { IsDead =  true; }
         }
 
         public int Health { get; private set; }
         public bool IsDead { get; private set; }
         public string Race { get; set; }
-        public double Resistance { get; set; }
+        public int Resistance { get; set; }
     }
 }
