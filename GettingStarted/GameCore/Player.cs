@@ -11,6 +11,7 @@ namespace GameCore
             IsDead = false;
             CharacterClass = CharacterClass.None;
             Weapons = new List<Weapon>();
+            MagicItems = new List<MagicItem>();
         }
 
         public void Hit(int damage)
@@ -24,6 +25,11 @@ namespace GameCore
             get { return Weapons.Sum(x => x.Value); }
         }
 
+        public int MagicPower
+        {
+            get { return MagicItems.Sum(x => x.Power); }
+        }
+
         public void CastHealingSpell()
         {
             if (CharacterClass == CharacterClass.Healer) { Health = 100; }
@@ -35,5 +41,6 @@ namespace GameCore
         public int Resistance { get; set; }
         public CharacterClass CharacterClass { get; set; }
         public List<Weapon> Weapons { get; set; }
+        public List<MagicItem> MagicItems { get; set; }
     }
 }

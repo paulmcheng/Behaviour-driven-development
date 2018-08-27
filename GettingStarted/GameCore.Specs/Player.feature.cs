@@ -44,8 +44,8 @@ namespace GameCore.Specs
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Player", "\tIn order to play the game\r\n\tAs a human player\r\n\tI want the health of the player " +
-                    "to be correctly respresented", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Player", "\tIn order to play the game\r\n\tAs a game player\r\n\tI want the health of the player t" +
+                    "o be correctly respresented", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -242,7 +242,7 @@ this.FeatureBackground();
                         "Resistance",
                         "0"});
 #line 42
- testRunner.And("I have the following strongly typed attributes", ((string)(null)), table2, "And ");
+ testRunner.And("I have the following dynamic attributes", ((string)(null)), table2, "And ");
 #line 46
  testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 47
@@ -269,6 +269,76 @@ this.FeatureBackground();
  testRunner.And("Cast a healing spell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 55
  testRunner.Then("My health should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Total magical power")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Player")]
+        public virtual void TotalMagicalPower()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", ((string[])(null)));
+#line 58
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "item",
+                        "cost",
+                        "power"});
+            table3.AddRow(new string[] {
+                        "Ring",
+                        "100",
+                        "100"});
+            table3.AddRow(new string[] {
+                        "Hat",
+                        "30",
+                        "200"});
+            table3.AddRow(new string[] {
+                        "Gloves",
+                        "100",
+                        "400"});
+#line 59
+ testRunner.And("I have the following magic items", ((string)(null)), table3, "And ");
+#line 64
+ testRunner.Then("My total magic power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Total dynamic magical power")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Player")]
+        public virtual void TotalDynamicMagicalPower()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total dynamic magical power", ((string[])(null)));
+#line 67
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "item",
+                        "cost",
+                        "power"});
+            table4.AddRow(new string[] {
+                        "Ring",
+                        "100",
+                        "100"});
+            table4.AddRow(new string[] {
+                        "Hat",
+                        "30",
+                        "200"});
+            table4.AddRow(new string[] {
+                        "Gloves",
+                        "100",
+                        "400"});
+#line 68
+ testRunner.And("I have the following dynamic magic items", ((string)(null)), table4, "And ");
+#line 73
+ testRunner.Then("My total magic power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -1,6 +1,6 @@
 ﻿Feature: Player
 	In order to play the game
-	As a human player
+	As a game player
 	I want the health of the player to be correctly respresented
 
 Background: 
@@ -39,7 +39,7 @@ Scenario: Elf race characters get additional 30 damage resistance
 
 Scenario: Human race characters get additional 0 damage resistance
 	#Given I'm a new player
-	And I have the following strongly typed attributes
+	And I have the following dynamic attributes
 	| attribute  | value |
 	| Race       | Human   |
 	| Resistance | 0    |
@@ -54,3 +54,20 @@ Scenario: Healers restore all health
 	And Cast a healing spell
 	Then My health should be 100
 
+#Using data tables in scenario steps
+Scenario: Total magical power
+	And I have the following magic items
+	| item   | cost  | power |
+	| Ring   | 100   | 100   |
+	| Hat    | 30    | 200   |
+	| Gloves | 100   | 400   |
+	Then My total magic power should be 700
+
+	#Using data tables in scenario steps
+Scenario: Total dynamic magical power
+	And I have the following dynamic magic items
+	| item   | cost  | power |
+	| Ring   | 100   | 100   |
+	| Hat    | 30    | 200   |
+	| Gloves | 100   | 400   |
+	Then My total magic power should be 700
