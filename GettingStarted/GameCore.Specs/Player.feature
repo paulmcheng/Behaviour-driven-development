@@ -37,6 +37,15 @@ Scenario: Elf race characters get additional 30 damage resistance
 	When I take 40 damage 
 	Then My health should be 90 
 
+Scenario: Human race characters get additional 0 damage resistance
+	#Given I'm a new player
+	And I have the following strongly typed attributes
+	| attribute  | value |
+	| Race       | Human   |
+	| Resistance | 0    |
+	When I take 40 damage 
+	Then My health should be 60 
+
 # Cast enum 
 Scenario: Healers restore all health
 	#Given I'm a new player

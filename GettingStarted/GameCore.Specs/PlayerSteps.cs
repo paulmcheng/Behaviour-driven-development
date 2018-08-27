@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
+using TechTalk.SpecFlow.Assist;
+
 namespace GameCore.Specs
 {
     //David Aamaie
@@ -36,6 +38,18 @@ namespace GameCore.Specs
             _player.Resistance = int.Parse(resistance);
             _player.Race = race;
         }
+
+        [Given(@"I have the following strongly typed attributes")]
+        public void GivenIHaveTheFollowingStronglyTypedAttributes(Table table)
+        {
+            var attributes = table.CreateInstance<PlayerAttributes>();
+
+            _player.Resistance = attributes.Resistance;
+            _player.Race = attributes.Race;
+        }
+
+
+
         [Given(@"My character class is (.*)")]
         public void GivenMyCharacterClassIsHealer(CharacterClass characterClass)
         {
