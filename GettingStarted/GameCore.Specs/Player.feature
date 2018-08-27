@@ -28,7 +28,7 @@ Scenario Outline: Starting health is reduced when hit
 	| 100    | 0              |
 
 #Using data tables in scenario steps
-Scenario: Elf race characters get additional 20 damage resistance using data table
+Scenario: Elf race characters get additional 30 damage resistance
 	#Given I'm a new player
 	And I have the following attributes
 	| attribute  | value |
@@ -36,3 +36,12 @@ Scenario: Elf race characters get additional 20 damage resistance using data tab
 	| Resistance | 30    |
 	When I take 40 damage 
 	Then My health should be 90 
+
+# Cast enum 
+Scenario: Healers restore all health
+	#Given I'm a new player
+	Given My character class is Healer
+	When I take 40 damage
+	And Cast a healing spell
+	Then My health should be 100
+
