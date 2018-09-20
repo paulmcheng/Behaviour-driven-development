@@ -25,6 +25,11 @@ namespace GameCore
             get { return Weapons.Sum(x => x.Value); }
         }
 
+        public void AddWeapon(Weapon item)
+        {
+            Weapons.Add(item);
+        }
+
         public int MagicPower
         {
             get { return MagicItems.Sum(x => x.Power); }
@@ -35,12 +40,29 @@ namespace GameCore
             if (CharacterClass == CharacterClass.Healer) { Health = 100; }
         }
 
+        public void UseMagicalItem(string itemName)
+        {
+            int powerReduction = 10;
+
+            var itemToReduce = MagicItems.First(item => item.Name == itemName && item.Power > 0);
+
+            if (itemToReduce != null)
+            {
+                itemToReduce.Power -= powerReduction;
+            }
+        }
+
+        public void AddMagicItem(MagicItem item)
+        {
+            MagicItems.Add(item);
+        }
+
         public int Health { get; private set; }
         public bool IsDead { get; private set; }
         public string Race { get; set; }
         public int Resistance { get; set; }
         public CharacterClass CharacterClass { get; set; }
-        public List<Weapon> Weapons { get; set; }
-        public List<MagicItem> MagicItems { get; set; }
+        public List<Weapon> Weapons { get; private set; }
+        public List<MagicItem> MagicItems { get; private set; }
     }
 }

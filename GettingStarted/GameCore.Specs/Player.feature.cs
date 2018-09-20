@@ -111,16 +111,34 @@ this.FeatureBackground();
             this.ScenarioCleanup();
         }
         
-        public virtual void StartingHealthIsReducedWhenHit(string damage, string expectedHealth, string[] exampleTags)
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Taking too much damage result in player death")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Player")]
+        public virtual void TakingTooMuchDamageResultInPlayerDeath()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit", exampleTags);
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking too much damage result in player death", ((string[])(null)));
+#line 16
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 19
+#line 17
+ testRunner.When("I take 100 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 18
+ testRunner.Then("I should be dead", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        public virtual void StartingHealthIsReducedWhenHit(string damage, string expectedHealth, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit", exampleTags);
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 23
  testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
+#line 24
  testRunner.Then(string.Format("My health should be {0}", expectedHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -134,7 +152,7 @@ this.FeatureBackground();
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "100")]
         public virtual void StartingHealthIsReducedWhenHit_0()
         {
-#line 17
+#line 21
 this.StartingHealthIsReducedWhenHit("0", "100", ((string[])(null)));
 #line hidden
         }
@@ -147,7 +165,7 @@ this.StartingHealthIsReducedWhenHit("0", "100", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "90")]
         public virtual void StartingHealthIsReducedWhenHit_10()
         {
-#line 17
+#line 21
 this.StartingHealthIsReducedWhenHit("10", "90", ((string[])(null)));
 #line hidden
         }
@@ -160,7 +178,7 @@ this.StartingHealthIsReducedWhenHit("10", "90", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "50")]
         public virtual void StartingHealthIsReducedWhenHit_50()
         {
-#line 17
+#line 21
 this.StartingHealthIsReducedWhenHit("50", "50", ((string[])(null)));
 #line hidden
         }
@@ -173,7 +191,7 @@ this.StartingHealthIsReducedWhenHit("50", "50", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "1")]
         public virtual void StartingHealthIsReducedWhenHit_99()
         {
-#line 17
+#line 21
 this.StartingHealthIsReducedWhenHit("99", "1", ((string[])(null)));
 #line hidden
         }
@@ -186,7 +204,7 @@ this.StartingHealthIsReducedWhenHit("99", "1", ((string[])(null)));
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:expectedHealth", "0")]
         public virtual void StartingHealthIsReducedWhenHit_100()
         {
-#line 17
+#line 21
 this.StartingHealthIsReducedWhenHit("100", "0", ((string[])(null)));
 #line hidden
         }
@@ -197,7 +215,7 @@ this.StartingHealthIsReducedWhenHit("100", "0", ((string[])(null)));
         public virtual void ElfRaceCharactersGetAdditional30DamageResistance()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Elf race characters get additional 30 damage resistance", ((string[])(null)));
-#line 31
+#line 35
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -211,11 +229,11 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "Resistance",
                         "30"});
-#line 33
- testRunner.And("I have the following attributes", ((string)(null)), table1, "And ");
 #line 37
+ testRunner.And("I have the following attributes", ((string)(null)), table1, "And ");
+#line 41
  testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 38
+#line 42
  testRunner.Then("My health should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -227,7 +245,7 @@ this.FeatureBackground();
         public virtual void HumanRaceCharactersGetAdditional0DamageResistance()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Human race characters get additional 0 damage resistance", ((string[])(null)));
-#line 40
+#line 44
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -241,11 +259,11 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "Resistance",
                         "0"});
-#line 42
- testRunner.And("I have the following dynamic attributes", ((string)(null)), table2, "And ");
 #line 46
+ testRunner.And("I have the following dynamic attributes", ((string)(null)), table2, "And ");
+#line 50
  testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 47
+#line 51
  testRunner.Then("My health should be 60", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -257,17 +275,17 @@ this.FeatureBackground();
         public virtual void HealersRestoreAllHealth()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Healers restore all health", ((string[])(null)));
-#line 50
+#line 54
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 52
+#line 56
  testRunner.Given("My character class is Healer", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 53
+#line 57
  testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 54
+#line 58
  testRunner.And("Cast a healing spell", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 59
  testRunner.Then("My health should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -279,7 +297,7 @@ this.FeatureBackground();
         public virtual void TotalMagicalPower()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total magical power", ((string[])(null)));
-#line 58
+#line 62
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -300,9 +318,9 @@ this.FeatureBackground();
                         "Gloves",
                         "100",
                         "400"});
-#line 59
+#line 63
  testRunner.And("I have the following magic items", ((string)(null)), table3, "And ");
-#line 64
+#line 68
  testRunner.Then("My total magic power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -314,7 +332,7 @@ this.FeatureBackground();
         public virtual void TotalDynamicMagicalPower()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Total dynamic magical power", ((string[])(null)));
-#line 67
+#line 71
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
@@ -335,10 +353,32 @@ this.FeatureBackground();
                         "Gloves",
                         "100",
                         "400"});
-#line 68
+#line 72
  testRunner.And("I have the following dynamic magic items", ((string)(null)), table4, "And ");
-#line 73
+#line 77
  testRunner.Then("My total magic power should be 700", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Magical power reduced when used")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Player")]
+        public virtual void MagicalPowerReducedWhenUsed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Magical power reduced when used", ((string[])(null)));
+#line 80
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 81
+ testRunner.Given("My race is Ore", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 82
+ testRunner.And("I have a magical item InfinityStone with a power of 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 83
+ testRunner.When("I use the magical item InfinityStone", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+ testRunner.Then("the power of magical item InfinityStone should be 90", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

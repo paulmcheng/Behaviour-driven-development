@@ -89,13 +89,12 @@ namespace GameCore.Specs
                 int power = item.power;
                 _player.MagicItems.Add(new MagicItem
                 {
-                    Item = name,
+                    Name = name,
                     Cost = cost,
                     Power = power
                 });
             }
         }
-
 
         [Then(@"My total magic power should be (.*)")]
         public void ThenMyTotalMagicPowerShouldBe(int expectedPower)
@@ -103,6 +102,36 @@ namespace GameCore.Specs
             Assert.Equal(_player.MagicPower, expectedPower);
         }
 
+        [Then(@"I should be dead")]
+        public void ThenIShouldBeDeath()
+        {
+            Assert.Equal(_player.IsDead, true);
+        }
+
+        [Given(@"My race is (.*)")]
+        public void GivenMyRaceIs(string raceName)
+        {
+            _player.Race = raceName;
+        }
+
+        [Given(@"I have a magical item (.*) with a power of (.*)")]
+        public void GivenIHaveAMagicalItemWithAPowerOf(string magicalItemName, int power)
+        {
+            _player.AddMagicItem(new MagicItem() { Name =  magicalItemName, Power = power});
+        }
+
+        [When(@"I use the magical item (.*)")]
+        public void WhenIUseTheMagicalItem(string magicalItemName)
+        {
+            _player.UseMagicalItem(magicalItemName);
+        }
+
+        [Then(@"the power of magical item (.*) should be (.*)")]
+        public void ThenThePowerOfMagicalItemShouldBe(string magicalItemName, int expectedPower)
+        {
+            MagicItem magicalItem = _player.MagicItems.First(item => item.Name == magicalItemName);
+            Assert.Equal(magicalItem.Power, expectedPower);
+        }
 
     }
 }

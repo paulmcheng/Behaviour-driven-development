@@ -13,6 +13,10 @@ Scenario: Taking no damage when hit doesn't affect health
 	When I take 0 damage
 	Then My health should be 100
 
+Scenario: Taking too much damage result in player death
+	When I take 100 damage 
+	Then I should be dead 
+
 # Using scenario outlines
 Scenario Outline: Starting health is reduced when hit
 	#Given I'm a new player
@@ -63,7 +67,7 @@ Scenario: Total magical power
 	| Gloves | 100   | 400   |
 	Then My total magic power should be 700
 
-	#Using data tables in scenario steps
+#Using data tables in scenario steps
 Scenario: Total dynamic magical power
 	And I have the following dynamic magic items
 	| item   | cost  | power |
@@ -71,3 +75,10 @@ Scenario: Total dynamic magical power
 	| Hat    | 30    | 200   |
 	| Gloves | 100   | 400   |
 	Then My total magic power should be 700
+
+# Passing multiple data between step definitions  
+Scenario: Magical power reduced when used 
+	Given My race is Ore
+	And I have a magical item InfinityStone with a power of 100
+	When I use the magical item InfinityStone
+	Then the power of magical item InfinityStone should be 90
